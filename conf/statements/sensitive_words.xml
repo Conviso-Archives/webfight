@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sensitive_word>
+
+    <item value="adm" />
+    <item value="log" />
+    <item value="include" />
+    <item value="db" />
+    <item value="database" />
+    <item value="id" />
+    <item value="interface" />
+    <item value="cfg" />
+    <item value="config" />
+
+</sensitive_word>

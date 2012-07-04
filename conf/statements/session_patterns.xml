@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session>
+
+    <item value="JSESSIONID" />
+    <item value="PHPSESSID" />
+    <item value="ASP.NET_SessionId" />
+    <item value="CFID" />
+    <item value="CFTOKEN" />
+    <item value="ASPSESSIONID" />
+    <item value="SESSID" />
+    <item value="SID" />
+    <item value="VIEWSTATE" />
+    <item value="ZENID" />
+    <item value="SITESERVER" />
+    <item value="ASPXAUTH" />
+    <item value="sessionId" />
+
+</session>

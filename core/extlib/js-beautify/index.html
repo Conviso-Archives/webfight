@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+
+  (c) 2006-2010: Einar Lielmanis, einars@jsbeautifier.org
+
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Online javascript beautifier</title>
+<script type="text/javascript">
+
+function trim_leading_comments(str)
+{
+    // very basic. doesn't support /* ... */
+    str = str.replace(/^(\s*\/\/[^\n]*\n)+/, '');
+    str = str.replace(/^\s+/, '');
+    return str;
+}
+
+function unpacker_filter(source)
+{
+
+        var stripped_source = trim_leading_comments(source);
+        var unpacked = '';
+
+        if (P_A_C_K_E_R.detect(stripped_source)) {
+            unpacked = P_A_C_K_E_R.unpack(stripped_source);
+            if (unpacked !== stripped_source) {
+                return unpacker_filter(unpacked);
+            }
+        }
+
+        if (EscapedBookmarklet.detect(source)) {
+            unpacked = EscapedBookmarklet.unpack(source);
+            if (unpacked !== stripped_source) {
+                return unpacker_filter(unpacked);
+            }
+        }
+
+        if (JavascriptObfuscator.detect(stripped_source)) {
+            unpacked = JavascriptObfuscator.unpack(stripped_source);
+            if (unpacked !== stripped_source) {
+                return unpacker_filter(unpacked);
+            }
+        }
+
+    return source;
+
+}
+
+function do_js_beautify()
+{
+    var js_source = document.getElementById('content').value.replace(/^\s+/, '');
+    var indent_size = 4;
+    var indent_char = ' ';
+    var preserve_newlines = true;
+    var keep_array_indentation = true;
+    var braces_on_own_line = true;
+
+        document.getElementById('content').value =
+        js_beautify(unpacker_filter(js_source), {
+            indent_size: indent_size,
+            indent_char: indent_char,
+            preserve_newlines:preserve_newlines,
+            braces_on_own_line: braces_on_own_line,
+            keep_array_indentation:keep_array_indentation,
+            space_after_anon_function:true});
+
+    return false;
+}
+
+
+function get_var( name )
+{
+    var res = new RegExp( "[\\?&]" + name + "=([^&#]*)" ).exec( window.location.href );
+    return res ? res[1] : "";
+}
+
+</script>
+<script type="text/javascript" src="beautify.js" ></script>
+<script type="text/javascript" src="beautify-html.js" ></script>
+<script type="text/javascript" src="unpackers/javascriptobfuscator_unpacker.js" ></script>
+<script type="text/javascript" src="unpackers/bookmarklet_unpacker.js" ></script>
+<script type="text/javascript" src="unpackers/p_a_c_k_e_r_unpacker.js" ></script>
+
+
+</head>
+<body>
+  <form method="post" action="?">
+      <fieldset id="textarea">
+      <div><textarea rows="30" cols="100" name="content" id="content">
+/*   paste in your code and press Beautify button   */
+if('this_is'==/an_example/){do_something();}else{var a=b?(c%d):e[f];}
+</textarea>
+      <button onclick="return do_js_beautify()" id="beautify">Beautify</button>
+</fieldset>
+  </form>
+</body>
+</html>

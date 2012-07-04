@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javascript>
+
+    <source value="document.URL" />
+    <source value="event.data" />
+    <source value="event.origin" />
+    <source value="textbox.value" />
+    <source value="XMLHttpRequest.open" />
+    <source value="document.forms" />
+    <source value="document.URLUnencoded" />
+    <source value="document.location" />
+    <source value="document.cookie" />
+    <source value="document.referer" />
+    <source value="forms.value" />
+    <source value="document.attachEvent" />
+
+    <sink value="window.setInterval" />
+    <sink value="window.setTimeout" />
+    <sink value="document.forms[0].action" />
+    <sink value="document.body." />
+    <sink value="window.location" />
+    <sink value="eval" />
+    <sink value="window.execScript" />
+    <sink value="document.write" />
+    <sink value="document.writeIn" />
+    <sink value="document.body.innerHtml" />
+    <sink value="document.create" />
+    <sink value="document.execCommand" />
+    <sink value="window.attachEvent" />
+
+</javascript>
+
+

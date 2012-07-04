@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flash>
+
+    <text value="TextField" />
+    <text value="TextArea" />
+    <text value="showText" />
+    <text value="createTextField" />
+    <load value="loadMovieNum" />
+    <load value="LoadVars.load" />
+    <load value="LoadVars.send" />
+    <load value="XML.load" />
+    <load value="Sound.loadSound" />
+    <load value="NetStream.play" />
+    <load value="loadMovie" />
+    <net value="NetServices.createGatewayConnection" />
+    <net value="NetConnection.connect" />
+    <url value="clickTAG" />
+    <url value="getURL" />
+    <crossdomain value="loadPolicyFile" />
+    <crossdomain value="allowDomain" />
+    <xml value="XML.send" />
+    <lso value="SharedObject" />
+    <header value="addRequestHeader" />
+    <externalinterface value="ExternalInterface" />
+    <globalvariables value="_root.*" />
+    <globalvariables value="_global.*" />
+    <globalvariables value="_level0.*" />
+    
+</flash>

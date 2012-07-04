@@ -1,0 +1,69 @@
+movie 'skycraper.swf' compressed // flash 7, total frames: 1, frame rate: 12 fps, 120x120 px
+
+  frame 0
+    function AbrePegCred ()
+      getURL 'http://www.pegcred.com.br' '_blank'
+    end // of function AbrePegCred
+
+    push 'botaoPegCred'
+    getVariable
+    push 'onPress', 'AbrePegCred'
+    getVariable
+    setMember
+  end // of frame 0
+
+  defineMovieClip 5 // total frames: 1
+  end // of defineMovieClip 5
+
+  defineMovieClip 8 // total frames: 1
+  end // of defineMovieClip 8
+
+  defineMovieClip 11 // total frames: 1
+  end // of defineMovieClip 11
+
+  defineMovieClip 24 // total frames: 124
+
+    frame 0
+      function AbrePegCred ()
+        getURL 'http://www.pegcred.com.br' '_blank'
+      end // of function AbrePegCred
+
+      push '_i', 0.0
+      setVariable
+    end // of frame 0
+
+    frame 120
+      push 'botao'
+      getVariable
+      push 'onPress', 'AbrePegCred'
+      getVariable
+      setMember
+    end // of frame 120
+
+    frame 123
+      constants '_i', 'i', 'alert'  
+      push '_i', '_i'
+      getVariable
+      increment
+      setVariable
+      push 'i'
+      getVariable
+      push 1, 'alert'
+      callFunction
+      pop
+      push '_i'
+      getVariable
+      push 40
+      lessThan
+      not
+      branchIfTrue label1
+      gotoFrame 121
+      play
+      branch label2
+     label1:
+      gotoFrame 0
+      play
+     label2:
+    end // of frame 123
+  end // of defineMovieClip 24
+end
